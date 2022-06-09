@@ -58,29 +58,7 @@ body {
 
 .tarefas {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 35px;
 }
-
-.teste label {
-    margin-left: 10px;
-    font-size: 22px;
-    font-weight: 600;
-    color: aliceblue;
-}
-
-.tarefas p {
-    font-size: 22px;
-    font-weight: 600;
-    color: aliceblue;
-}
-
-.tarefas button {
-    font-size: 15px;
-    font-weight: 600;
-    padding: 2px 20px;
-    border-radius: 10px;
-    border: none;
-}
-
 
