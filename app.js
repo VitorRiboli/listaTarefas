@@ -26,6 +26,7 @@ function criaTarefa(textoInput) {
     tarefas.appendChild(li); //adiciona o li dentro da class='tarefas'
     limpaInput(); //uando termina de add a tarefa limpa
     criaBotaoApagar(li);
+    salvarTarefa(); //função para salvar a tarefa
 }
 
 function criaBotaoApagar(li) {
@@ -46,9 +47,19 @@ btnTarefa.addEventListener('click', function(e) {
 
 document.addEventListener('click', function(e) {
     const el = e.target; 
-
     if (el.classList.contains('apagar')) { //se esse botao tem a class 'apagar' e ele que eu quero
         el.parentElement.remove(); //remove o pai do botao
     }
-
 });
+
+function salvarTarefa() {
+    //pegar os li's dentro das tarefas, selectorALL pq quer todos.
+    const liTarefas = tarefas.querySelectorAll('li');
+    const listaTarefas = []; //vai receber todas as li
+    
+    for (let tarefa of liTarefas) {
+        let tarefaTexto = tarefa.innerText;
+        tarefaTexto = tarefaTexto.replace('Apagar', '').trim(); //tira o texto apagar, e o trim tira o espaço vazio que fica
+        listaTarefas.push(tarefaTexto); //vai jogar os textos dentro da array
+    }
+}
