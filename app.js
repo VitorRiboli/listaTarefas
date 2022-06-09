@@ -15,10 +15,26 @@ addTarefa.addEventListener('keypress', function(e) {
     }
 });
 
+function limpaInput() {
+    addTarefa.value = ''
+    addTarefa.focus();
+}
+
 function criaTarefa(textoInput) {
     const li = criaLi(); //este li so pertence ao escopo dessa função
     li.innerHTML = textoInput;
     tarefas.appendChild(li); //adiciona o li dentro da class='tarefas'
+    limpaInput(); //uando termina de add a tarefa limpa
+    criaBotaoApagar(li);
+}
+
+function criaBotaoApagar(li) {
+    li.innerHTML += ' ';
+    const botaoApagar = document.createElement('button'); //criando um botao para apagar as tarefas
+    botaoApagar.innerHTML = 'Apagar';
+    //botaoApagar.classList.add('apagar'); //poderia adicionar uma classe assim.
+    botaoApagar.setAttribute('class', 'apagar') //esse codigo seta um atributo do tipo class = 'apagar'
+    li.appendChild(botaoApagar);  //adicionando o botao no li
 
 }
 
@@ -28,4 +44,11 @@ btnTarefa.addEventListener('click', function(e) {
     criaTarefa(addTarefa.value) //quando clica no botao, pega o texto ue está no inpuit da tarefa e joga para a função criarTarefa
 })
 
+document.addEventListener('click', function(e) {
+    const el = e.target; 
 
+    if (el.classList.contains('apagar')) { //se esse botao tem a class 'apagar' e ele que eu quero
+        el.parentElement.remove(); //remove o pai do botao
+    }
+
+});

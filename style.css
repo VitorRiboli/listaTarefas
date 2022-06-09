@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    width: 600px;
+    width: 650px;
     background-color: rgb(78, 80, 82);
     margin-top: 80px;
     padding: 40px 30px;
@@ -60,5 +60,21 @@ body {
     display: flex;
     flex-direction: column;
     margin-left: 35px;
+}
+
+.tarefas li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: aliceblue;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.apagar {
+    width: 80px;
+    margin-right: 70px;
+    border-radius: 10px;
+    border: none;
 }
 
