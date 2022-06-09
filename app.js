@@ -67,5 +67,16 @@ function salvarTarefa() {
     //cria um JSON em um array, para converter depois
     const tarefasJSON = JSON.stringify(listaTarefas);
     localStorage.setItem('tarefas', tarefasJSON) //local para salvar dados 'mini base de dados'.. ('Nome que vai usar para recuperar depois', valor a ser inserido)
-
 }
+
+function adicionaTarefaSalva() {
+    //obtem as tarefas do localStorage e adicionad de novo
+    const tarefas = localStorage.getItem('tarefas');
+    //converter de volta para uma array
+    const listaTarefas = JSON.parse(tarefas);
+
+    for (let tarefa of listaTarefas) {
+        criaTarefa(tarefa);
+    }
+}
+adicionaTarefaSalva();
