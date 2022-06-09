@@ -8,6 +8,13 @@ function criaLi() { //essa função so cria um li
     return li;
 }
 
+addTarefa.addEventListener('keypress', function(e) {
+    if (e.keyCode === 13) {
+        if (!addTarefa.value) return;
+        criaTarefa(addTarefa.value);
+    }
+});
+
 function criaTarefa(textoInput) {
     const li = criaLi(); //este li so pertence ao escopo dessa função
     li.innerHTML = textoInput;
