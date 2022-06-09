@@ -49,6 +49,7 @@ document.addEventListener('click', function(e) {
     const el = e.target; 
     if (el.classList.contains('apagar')) { //se esse botao tem a class 'apagar' e ele que eu quero
         el.parentElement.remove(); //remove o pai do botao
+        salvarTarefa(); //salvar as tarefas aqui, para que quando clique em apagar remova do localStorage
     }
 });
 
@@ -62,4 +63,9 @@ function salvarTarefa() {
         tarefaTexto = tarefaTexto.replace('Apagar', '').trim(); //tira o texto apagar, e o trim tira o espaço vazio que fica
         listaTarefas.push(tarefaTexto); //vai jogar os textos dentro da array
     }
+
+    //cria um JSON em um array, para converter depois
+    const tarefasJSON = JSON.stringify(listaTarefas);
+    localStorage.setItem('tarefas', tarefasJSON) //local para salvar dados 'mini base de dados'.. ('Nome que vai usar para recuperar depois', valor a ser inserido)
+
 }
